@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2c3cf3f-ee48-4fd1-87c8-ddba0230203c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/suite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/suite.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a2c3cf3f-ee48-4fd1-87c8-ddba0230203c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -24,9 +16,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1SsehMx9fYgVJOsL6VqEC5Gn6qM" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -45,57 +35,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.C:/Users/synne/Desktop/SSCC/SoftServe-Crash-Course/HW4/suite.xml">
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <module name="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <module name="" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="C:/Users/synne/Desktop/SSCC/SoftServe-Crash-Course/HW4/suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="mainPageTesting" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/suite.xml" />
+  <component name="RunManager" selected="TestNG.C:/Users/synne/IdeaProjects/HW4/src/test/resources/suite.xml">
+    <configuration name="C:/Users/synne/IdeaProjects/HW4/src/test/resources/suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HW4" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/suite.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -113,8 +56,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SearchTesting (1)" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="mainPageTesting" />
+    <configuration name="SearchTesting" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HW4" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SearchTesting" />
       <option name="TEST_OBJECT" value="CLASS" />
@@ -124,11 +67,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SearchTesting" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="SearchTesting.resultAccuracyCheck" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HW4" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SearchTesting" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="METHOD_NAME" value="resultAccuracyCheck" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -149,10 +93,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.C:/Users/synne/Desktop/SSCC/SoftServe-Crash-Course/HW4/suite.xml" />
-        <item itemvalue="TestNG.SearchTesting (1)" />
-        <item itemvalue="TestNG.SearchTesting" />
+        <item itemvalue="TestNG.C:/Users/synne/IdeaProjects/HW4/src/test/resources/suite.xml" />
         <item itemvalue="TestNG.C:/Users/synne/IdeaProjects/HW4/suite.xml" />
+        <item itemvalue="TestNG.SearchTesting.resultAccuracyCheck" />
+        <item itemvalue="TestNG.SearchTesting" />
         <item itemvalue="TestNG.SearchTesting.searchFieldTesting" />
       </list>
     </recent_temporary>
@@ -167,23 +111,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572356848523</updated>
-      <workItem from="1572356861038" duration="12638000" />
-      <workItem from="1572533896918" duration="1234000" />
+      <workItem from="1572356861038" duration="13855000" />
+      <workItem from="1572464738835" duration="781000" />
+      <workItem from="1572811783170" duration="1144000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

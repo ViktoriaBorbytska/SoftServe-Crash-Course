@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ssCrashCourse HW4 Groups File">
+    <test name="Groups">
+        <groups>
+            <define name="include-group">
+                <include name="servicesTesting" />
+            </define>
+            <run>
+                <include name="include-group" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ServicesTesting" />
+        </classes>
+    </test>
+</suite>

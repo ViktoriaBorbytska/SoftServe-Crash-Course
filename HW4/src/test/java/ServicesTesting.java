@@ -19,11 +19,11 @@ public class ServicesTesting {
 
     // Method 1: driver setup
     @BeforeSuite
-    public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+    public void beforeSuite() {
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         servicesListExpected = new ArrayList<String>();
         servicesListExpected.add("програмне забезпечення");
@@ -39,13 +39,13 @@ public class ServicesTesting {
 
     // Method 2: url launch
     @BeforeClass
-    public void appSetup() {
+    public void beforeClass() {
         driver.get(urlMain);
     }
 
     // Method 3: profile setup
     @BeforeTest
-    public void profileSetup() {
+    public void beforeTest() {
         driver.manage().window().maximize();
     }
 
@@ -60,7 +60,7 @@ public class ServicesTesting {
     @Test(priority = 1,
             groups = {"servicesTesting"},
             dependsOnMethods = "getServicesList")
-    public void listFulfillmentCheck() {
+    public void checkListFulfillment() {
         int expected = servicesListExpected.size();
         int actual = servicesListActual.size();
 
@@ -71,7 +71,7 @@ public class ServicesTesting {
     @Test(priority = 1,
             groups = {"servicesTesting"},
             dependsOnMethods = "getServicesList")
-    public void serviceListsComparison() {
+    public void compareServiceLists() {
         servicesListActualContent = new ArrayList<String>();
 
         for (WebElement webElement : servicesListActual) {
@@ -86,7 +86,7 @@ public class ServicesTesting {
 
     // Method 7: quiting the driver
     @AfterClass
-    public void shutDown() {
+    public void afterClass() {
         driver.quit();
     }
 }

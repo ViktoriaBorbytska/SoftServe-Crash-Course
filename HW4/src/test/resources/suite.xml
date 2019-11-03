@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ssCrashCourse HW4 Suite File">
+    <test name="ServicesTesting">
+        <classes>
+            <class name="ServicesTesting" />
+        </classes>
+    </test>
+
+    <test name="SearchTesting">
+        <classes>
+            <class name="SearchTesting" />
+        </classes>
+    </test>
+</suite>

@@ -14,74 +14,65 @@ public class SearchTesting {
     List<WebElement> searchResultsList;
     private final String urlMain = "https://www.softserveinc.com/uk-ua/";
     private final String searchQuery = "application";
-    private final String xSearchLink = "//a[@aria-label='Search']";
-    private final String xInputField = "//input[@type='text' and @maxlength=1000]";
-    private final String xSearchButton = "//input[@type='submit' and @value=' Пошук']";
+    private final String SearchLink = "//a[@aria-label='Search']";
+    private final String InputField = "//input[@type='text' and @maxlength=1000]";
+    private final String SearchButton = "//input[@type='submit' and @value=' Пошук']";
     private final String searchResultTitle = "//h2[@class='search-result-title']";
 
     // Method 1: driver setup
     @BeforeSuite
-    public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+    public void beforeSuite() {
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 1);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 10);
     }
 
     // Method 2: url launch
     @BeforeClass
-    public void appSetup() {
+    public void beforeClass() {
         driver.get(urlMain);
     }
 
     // Method 3: profile setup
     @BeforeTest
-    public void profileSetup() {
+    public void beforeTest() {
         driver.manage().window().maximize();
     }
 
     // Method 4: search field testing
-    @Test(priority = 0,
-            groups = {"searchTesting"})
+    @Test
     public void searchFieldTesting(){
         driver.navigate().refresh();
 
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("page-preloader")));
-        WebElement searchLink = driver.findElement(By.xpath(xSearchLink));
+        WebElement searchLink = driver.findElement(By.xpath(SearchLink));
         searchLink.click();
 
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("page-preloader")));
-        WebElement searchInput = driver.findElement(By.xpath(xInputField));
+        WebElement searchInput = driver.findElement(By.xpath(InputField));
         searchInput.sendKeys(searchQuery);
 
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("page-preloader")));
-        WebElement searchButton  = driver.findElement(By.xpath(xSearchButton));
+        WebElement searchButton  = driver.findElement(By.xpath(SearchButton));
         searchButton.click();
     }
 
     // Method 5: checking whether the number of strings in the list is correct
-    @Test(priority = 1,
-            groups = {"searchTesting"},
-            dependsOnMethods = "searchFieldTesting")
+    @Test(dependsOnMethods = "searchFieldTesting")
     public void resultFulfillmentCheck() {
         searchResultsList = driver.findElements(By.xpath(searchResultTitle));
-
-        boolean expected = true;
         boolean actual = searchResultsList.size() > 0;
-
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, true);
     }
 
     // Method 6: checking whether the result is correct
-    @Test(priority = 2,
-            groups = {"searchTesting"},
-            dependsOnMethods = "searchFieldTesting")
+    @Test(dependsOnMethods = "searchFieldTesting")
     public void resultAccuracyCheck () {
         searchResultsList = driver.findElements(By.xpath(searchResultTitle));
         List<String> resultsList = new ArrayList<>();
 
-        boolean expected = true;
         boolean actual = true;
 
         for (int i = 0; i < searchResultsList.size(); i++)
@@ -94,12 +85,12 @@ public class SearchTesting {
             }
         }
 
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, true);
     }
 
     // Method 7: quiting the driver
     @AfterClass
-    public final void shutDown() {
+    public final void afterClass() {
         driver.quit();
     }
 }
