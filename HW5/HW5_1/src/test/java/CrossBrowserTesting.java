@@ -4,11 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
-
 import java.util.concurrent.TimeUnit;
+import test.DriverManagers.*;
 
 
-public class MultibrowserTesting {
+public class CrossBrowserTesting {
     DriverManager driverManager;
     WebDriver driver;
 
@@ -17,10 +17,17 @@ public class MultibrowserTesting {
     final String FIRSTLINKCLASS = "LC20lb";
 
     @BeforeTest
-    public void beforeTest() {
-        driverManager = DriverManagerFactory.getManager(DriverType.CHROME);
+    @Parameters("Browser")
+    public void beforeTest(String Browser) throws Exception{
+        if(Browser.equalsIgnoreCase("firefox")) {
+            driverManager = DriverManagerFactory.getManager(DriverType.FIREFOX);
+        } else if (Browser.equalsIgnoreCase("chrome")) {
+            driverManager = DriverManagerFactory.getManager(DriverType.CHROME);
+        } else {
+            driverManager = DriverManagerFactory.getManager(DriverType.EDGE);
+        }
         driver = driverManager.getDriver();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
     @AfterTest

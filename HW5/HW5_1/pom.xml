@@ -18,13 +18,13 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.14.3</version>
-            <scope>test</scope>
+            <scope>src</scope>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>3.7.1</version>
-            <scope>test</scope>
+            <scope>src</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

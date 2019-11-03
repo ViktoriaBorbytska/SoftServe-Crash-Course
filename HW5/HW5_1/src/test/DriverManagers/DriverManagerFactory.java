@@ -1,5 +1,6 @@
-public class DriverManagerFactory {
+package test.DriverManagers;
 
+public class DriverManagerFactory {
     public static DriverManager getManager(DriverType type) {
 
         DriverManager driverManager;
@@ -16,6 +17,5 @@ public class DriverManagerFactory {
                 break;
         }
         return driverManager;
-
     }
 }
