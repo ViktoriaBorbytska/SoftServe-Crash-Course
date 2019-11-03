@@ -17,10 +17,10 @@ HW4 - Suite Containing Services and Search Testing Setup - v.1.1:
 	    - SearchTesting.java contains Search testing;
 
 HW5:
-	 _1: Multi-browser Testing Structure Setup - v.1.1:
+	 _1: CrossBrowserTesting Structure Setup - v.1.2:
      
 	    - pom.xml contains general settings for the project;
-	    - MultibrowserTesting.java contains basic webpage testing;
-	    - DriverManager.java, DriverManagerFactory.java, DriverType.java implement general Web Driver Factory Pattern strusture;
-	    - ChromeDriverManager.java, FirefoxDriverManager.java, EdgeDriverManager.java implement particular driver settings;
+	    - CrossBrowserTesting.java contains basic webpage testing;
+	    - DriverManagers contains Web Driver Factory Pattern structure;
+	    - resources contains suite.xml;
 	 
