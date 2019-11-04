@@ -14,14 +14,15 @@ HW4 - Suite Containing Services and Search Testing Setup - v.1.2:
 	    - SearchTesting.java contains Search testing;
 
 HW5:
-	 _1: CrossBrowserTesting Structure Setup - v.1.2:
+_1: CrossBrowserTesting Structure Setup - v.1.2:
      
 	    - pom.xml contains general settings for the project;
 	    - CrossBrowserTesting.java contains basic webpage testing;
 	    - DriverManagers contains Web Driver Factory Pattern structure;
 	    - resources contains suite.xml;
 		
-	_2: User Testing Postman Collection - v.1.1:
+_2: User Testing Postman Collection - v.1.1:
      
-	    - User Testing.postman_collection contains a collection designed for user operations testing with the usage of Swagger Petstore;
+	    - User Testing.postman_collection contains a collection designed for user operations testing with the usage
+	      of Swagger Petstore;
 	 
