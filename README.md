@@ -24,6 +24,6 @@ _1: CrossBrowserTesting Structure Setup - v.1.2:
 		
 _2: User Testing Postman Collection - v.1.1:
      
-	    - User Testing.postman_collection.json contains a collection designed for user operations testing with the usage
-	      of Swagger Petstore;
+	    - User Testing.postman_collection.json contains a collection designed for user operations testing with 
+	      the usage of Swagger Petstore;
 	 
