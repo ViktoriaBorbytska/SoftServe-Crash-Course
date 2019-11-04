@@ -1,0 +1,823 @@
+{
+	"info": {
+		"_postman_id": "cb31cd17-cdf6-47b2-9749-e84ab6c9b67f",
+		"name": "User Testing",
+		"description": "This collection is designed for user operations testing with the usage of Swagger Petstore.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserCreation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5e130717-0726-45e4-a7c6-3ae27e9ec4fb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "aa6094da-17e8-41ec-a8a0-0ae8cde6a5f4",
+						"exec": [
+							"pm.environment.set(\"userName\", \"customUser1\");",
+							"pm.environment.set(\"email\", \"randomemail@abc.de\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 123456,\n    \"username\": \"{{userName}}\",\n    \"firstName\": \"Custom\",\n    \"lastName\": \"User\",\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\",\n    \"phone\": \"123456789\",\n    \"userStatus\": 0\n}"
+				},
+				"url": {
+					"raw": "{{mainUrl}}",
+					"host": [
+						"{{mainUrl}}"
+					]
+				},
+				"description": "This request implements user creation."
+			},
+			"response": []
+		},
+		{
+			"name": "UserGetting",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f569423a-cbd2-4b6f-aa98-a1246c997ca8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include('\"password\":\"qwert123\"');",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include('\"email\":\"randomemail@abc.de\"');",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include('\"username\":\"customUser1\"');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b80199e9-6e3d-4531-85e3-255df9bf03ed",
+						"exec": [
+							"pm.environment.get(\"userName\");",
+							"pm.environment.get(\"email\");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{mainUrl}}{{userName}}",
+					"host": [
+						"{{mainUrl}}{{userName}}"
+					]
+				},
+				"description": "This request implements user getting."
+			},
+			"response": []
+		},
+		{
+			"name": "UserUpdate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7c2f939f-9bff-447d-86b5-5fe74ef4374f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1149ab56-82ab-43dd-ab3a-ab5ff0074249",
+						"exec": [
+							"pm.environment.set(\"email\", \"qwert123@abc.de\");",
+							"pm.environment.get(\"email\");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 123456,\n    \"username\": \"{{userName}}\",\n    \"firstName\": \"Name\",\n    \"lastName\": \"Surname\",\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\",\n    \"phone\": \"123456789\",\n    \"userStatus\": 0\n}"
+				},
+				"url": {
+					"raw": "{{mainUrl}}{{userName}}",
+					"host": [
+						"{{mainUrl}}{{userName}}"
+					]
+				},
+				"description": "This request implements user update."
+			},
+			"response": []
+		},
+		{
+			"name": "UserGettingAfterUpdate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f569423a-cbd2-4b6f-aa98-a1246c997ca8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include('\"email\":\"qwert123@abc.de\"');",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include('\"firstName\":\"Name\"');",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include('\"lastName\":\"Surname\"');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b80199e9-6e3d-4531-85e3-255df9bf03ed",
+						"exec": [
+							"pm.environment.get(\"userName\");",
+							"pm.environment.get(\"email\");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{mainUrl}}{{userName}}",
+					"host": [
+						"{{mainUrl}}{{userName}}"
+					]
+				},
+				"description": "This request implements user getting after update."
+			},
+			"response": []
+		},
+		{
+			"name": "UserLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bea1b9c0-fc2e-4c2d-aff3-8c6902f9ccfd",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"X-Expires-After is present\", function () {",
+							"    pm.response.to.have.header(\"X-Expires-After\");",
+							"});",
+							"",
+							"pm.test(\"X-Rate-Limit is present\", function () {",
+							"    pm.response.to.have.header(\"X-Rate-Limit\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"logged in user session\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{mainUrl}}login?username={{userName}}&password={{password}}",
+					"host": [
+						"{{mainUrl}}login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "{{userName}}"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}"
+						}
+					]
+				},
+				"description": "This request implements user login."
+			},
+			"response": []
+		},
+		{
+			"name": "UserLogout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dc1c648e-6948-41ec-9535-526d279625d7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"X-Expires-After is present\", function () {",
+							"    pm.response.to.not.have.header(\"X-Expires-After\");",
+							"});",
+							"",
+							"pm.test(\"X-Rate-Limit is present\", function () {",
+							"    pm.response.to.not.have.header(\"X-Rate-Limit\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{mainUrl}}logout",
+					"host": [
+						"{{mainUrl}}logout"
+					]
+				},
+				"description": "This request implements user logout."
+			},
+			"response": []
+		},
+		{
+			"name": "UserDelition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f75d4155-150c-4506-8e69-a3d151f5d0eb",
+						"exec": [
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{mainUrl}}{{userName}}",
+					"host": [
+						"{{mainUrl}}{{userName}}"
+					]
+				},
+				"description": "This request implements user delition."
+			},
+			"response": []
+		},
+		{
+			"name": "UserListWithArrayCreation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "94400cb7-2859-4efd-abb1-59da34748005",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": 123,\n        \"username\": \"user1\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Johnson\",\n        \"email\": \"john1@abc.de\",\n        \"password\": \"watermelon\",\n        \"phone\": \"10293847\",\n        \"userStatus\": 4\n    },\n    {\n        \"id\": 124,\n        \"username\": \"user2\",\n        \"firstName\": \"Lana\",\n        \"lastName\": \"Lanson\",\n        \"email\": \"lana22@sdf.ad\",\n        \"password\": \"lemonpie\",\n        \"phone\": \"13243546\",\n        \"userStatus\": 2\n    },\n    {\n        \"id\": 125,\n        \"username\": \"user3\",\n        \"firstName\": \"Dave\",\n        \"lastName\": \"Davidson\",\n        \"email\": \"dave99@test.uu\",\n        \"password\": \"caramel\",\n        \"phone\": \"97867564\",\n        \"userStatus\": 1\n    }\n]"
+				},
+				"url": {
+					"raw": "{{mainUrl}}createWithArray",
+					"host": [
+						"{{mainUrl}}createWithArray"
+					]
+				},
+				"description": "This request implements list of users with given input array creation."
+			},
+			"response": []
+		},
+		{
+			"name": "UserFromListGetting",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f569423a-cbd2-4b6f-aa98-a1246c997ca8",
+						"exec": [
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include('\"id\":124');",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include('\"userStatus\":2');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b80199e9-6e3d-4531-85e3-255df9bf03ed",
+						"exec": [
+							"pm.environment.get(\"userNameFromList\");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{mainUrl}}{{userNameFromList}}",
+					"host": [
+						"{{mainUrl}}{{userNameFromList}}"
+					]
+				},
+				"description": "This request implements user from a list getting."
+			},
+			"response": []
+		},
+		{
+			"name": "UserFromListUpdate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7c2f939f-9bff-447d-86b5-5fe74ef4374f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1149ab56-82ab-43dd-ab3a-ab5ff0074249",
+						"exec": [
+							"pm.environment.set(\"user2Status\", \"0\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 124,\r\n    \"username\": \"user2\",\r\n    \"firstName\": \"Lana\",\r\n    \"lastName\": \"Lanson\",\r\n    \"email\": \"lana22@sdf.ad\",\r\n    \"password\": \"c00kie\",\r\n    \"phone\": \"6677543873\",\r\n    \"userStatus\": \"{{user2Status}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{mainUrl}}{{userNameFromList}}",
+					"host": [
+						"{{mainUrl}}{{userNameFromList}}"
+					]
+				},
+				"description": "This request implements user from a list update."
+			},
+			"response": []
+		},
+		{
+			"name": "UserFromListGettingAfterUpdate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f569423a-cbd2-4b6f-aa98-a1246c997ca8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include('\"phone\":\"6677543873\"');",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include('\"password\":\"c00kie\"');",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include('\"userStatus\":0');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b80199e9-6e3d-4531-85e3-255df9bf03ed",
+						"exec": [
+							"pm.environment.get(\"user2Status\");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{mainUrl}}{{userNameFromList}}",
+					"host": [
+						"{{mainUrl}}{{userNameFromList}}"
+					]
+				},
+				"description": "This request implements user from a list getting after update."
+			},
+			"response": []
+		},
+		{
+			"name": "User2Delition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f75d4155-150c-4506-8e69-a3d151f5d0eb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.environment.set(\"userNameFromList\", \"user1\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{mainUrl}}{{userNameFromList}}",
+					"host": [
+						"{{mainUrl}}{{userNameFromList}}"
+					]
+				},
+				"description": "This request implements user2 delition."
+			},
+			"response": []
+		},
+		{
+			"name": "User1Delition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f75d4155-150c-4506-8e69-a3d151f5d0eb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.environment.set(\"userNameFromList\", \"user3\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "294fe148-098b-4334-b206-ec424e4fc14f",
+						"exec": [
+							"pm.environment.get(\"userNameFromList\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{mainUrl}}{{userNameFromList}}",
+					"host": [
+						"{{mainUrl}}{{userNameFromList}}"
+					]
+				},
+				"description": "This request implements user1 delition."
+			},
+			"response": []
+		},
+		{
+			"name": "User3Delition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f75d4155-150c-4506-8e69-a3d151f5d0eb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.environment.unset(\"userNameFromList\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4f3397fb-b10f-4700-ac63-4b0532a63f9a",
+						"exec": [
+							"pm.environment.get(\"userNameFromList\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{mainUrl}}{{userNameFromList}}",
+					"host": [
+						"{{mainUrl}}{{userNameFromList}}"
+					]
+				},
+				"description": "This request implements user3 delition."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

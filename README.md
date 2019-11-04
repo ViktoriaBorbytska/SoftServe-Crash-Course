@@ -5,11 +5,8 @@ HW3 - First Automated Test Setup - v.1.2:
 
 	    - pom.xml contains general settings for the project;
 	    - FirstTest.java contains basic  webpage testing;
-	    - Test project structure fixed;
-	    - Separated blocks inside the class added;
-	    - Chromedriver.exe added;
 
-HW4 - Suite Containing Services and Search Testing Setup - v.1.1:
+HW4 - Suite Containing Services and Search Testing Setup - v.1.2:
 
 	    - suite.xml contains Services and Search testing classes;
 	    - group.xml contains Services and Search testing groups;
@@ -23,4 +20,8 @@ HW5:
 	    - CrossBrowserTesting.java contains basic webpage testing;
 	    - DriverManagers contains Web Driver Factory Pattern structure;
 	    - resources contains suite.xml;
+		
+	_2: User Testing Postman Collection - v.1.1:
+     
+	    - User Testing.postman_collection contains a collection designed for user operations testing with the usage of Swagger Petstore;
 	 
