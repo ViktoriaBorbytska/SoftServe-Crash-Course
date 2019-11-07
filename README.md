@@ -26,4 +26,11 @@ _2: User Testing Postman Collection - v.1.1:
      
 	    - User Testing.postman_collection.json contains a collection designed for user operations testing with 
 	      the usage of Swagger Petstore;
-	 
+	      
+HW6 - REST-assured Testing - v.1.1:
+
+	    - pom.xml contains general settings for the project;
+	    - UserTesting.java and UserListTesting.java contain user operations testing with the usage of Swagger 
+	      Petstore;
+	    - PayloadGenerator contains class to generate payloads;
+	    - resources contains suite.xml;
